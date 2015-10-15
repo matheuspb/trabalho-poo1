@@ -152,7 +152,7 @@ public class Cidades {
 		int numeroDeCidadesSemEntrada = 0;
 		
 		for (int k = 0; k < matriz.length; k++) {
-			if (numeroDeEntradas(k) == 0 && numeroDeEntradas(k) != 0)
+			if (numeroDeEntradas(k) == 0 && numeroDeSaidas(k) != 0)
 				numeroDeCidadesSemEntrada++;
 		}
 		
@@ -160,7 +160,7 @@ public class Cidades {
 		int indice = 0;
 		
 		for (int k = 0; k < matriz.length; k++) {
-			if (numeroDeEntradas(k) == 0 && numeroDeEntradas(k) != 0) {
+			if (numeroDeEntradas(k) == 0 && numeroDeSaidas(k) != 0) {
 				arrayCidadesSemEntrada[indice] = k;
 				indice++;
 			}
