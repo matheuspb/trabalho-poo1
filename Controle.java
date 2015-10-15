@@ -22,7 +22,7 @@ public class Controle {
 		
 		//view.mostraString(Boolean.toString(cidades.soTemLigacoesMaoDupla(3)));
 		//view.mostraInt("", cidades.maiorNumeroEntradas());
-		view.mostraString(Arrays.toString(cidades.cidadesSemSaida()));
+		view.mostraString(Arrays.toString(cidades.cidadesSemEntrada()));
 		
 	}
 

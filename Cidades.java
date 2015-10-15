@@ -56,7 +56,7 @@ public class Cidades {
 		view.mostraString(output);
 	}
 
-	public int estradasDeSaida(int k) { // item 1
+	public int numeroDeSaidas(int k) { // item 1
 		// retorna quantas estradas saem da cidade k
 		int i = k;
 		int numeroDeCaminhos = 0;
@@ -69,7 +69,7 @@ public class Cidades {
 		return numeroDeCaminhos;
 	}
 
-	public int estradasDeEntrada(int k) { // item 1
+	public int numeroDeEntradas(int k) { // item 1
 		// retorna quantas estradas chegam na cidade k
 		int j = k;
 		int numeroDeCaminhos = 0;
@@ -87,7 +87,7 @@ public class Cidades {
 		// obs.: se houver empate, retorna a cidade de menor numero
 		int cidadeMaiorNumero = 0;
 		for (int i = 0; i < matriz.length; i++) {
-			if (estradasDeEntrada(cidadeMaiorNumero) < estradasDeEntrada(i))
+			if (numeroDeEntradas(cidadeMaiorNumero) < numeroDeEntradas(i))
 				cidadeMaiorNumero = i;
 		}
 		return cidadeMaiorNumero;
@@ -146,15 +146,7 @@ public class Cidades {
 		int numeroDeCidadesIsoladas = 0;
 		
 		for (int k = 0; k < matriz.length; k++) {
-			boolean isolada = true;
-			for (int i = 0; i < matriz.length; i++) {
-				if (i == k)
-					continue;
-				if (matriz[i][k] == 1 || matriz[k][i] == 1) {
-					isolada = false;
-				}
-			}
-			if (isolada)
+			if (numeroDeEntradas(k) == 0 && numeroDeSaidas(k) == 0)
 				numeroDeCidadesIsoladas++;
 		}
 		
@@ -162,15 +154,7 @@ public class Cidades {
 		int indice = 0;
 		
 		for (int k = 0; k < matriz.length; k++) {
-			boolean isolada = true;
-			for (int i = 0; i < matriz.length; i++) {
-				if (i == k)
-					continue;
-				if (matriz[i][k] == 1 || matriz[k][i] == 1) {
-					isolada = false;
-				}
-			}
-			if (isolada) {
+			if (numeroDeEntradas(k) == 0 && numeroDeSaidas(k) == 0) {
 				cidadesSemLigacoes[indice] = k;
 				indice++;
 			}
@@ -182,12 +166,12 @@ public class Cidades {
 	public int[] cidadesSemSaida() { // item 5.b)
 		/*
 		 * retorna um array com os numeros das cidades que nao possuem
-		 * saida para nenhuma outra cidade
+		 * saida para nenhuma outra cidade, porem possuem alguma entrada
 		 */
 		int numeroDeCidadesSemSaida = 0;
 		
 		for (int k = 0; k < matriz.length; k++) {
-			if (estradasDeSaida(k) == 0)
+			if (numeroDeSaidas(k) == 0 && numeroDeEntradas(k) != 0)
 				numeroDeCidadesSemSaida++;
 		}
 		
@@ -195,7 +179,7 @@ public class Cidades {
 		int indice = 0;
 		
 		for (int k = 0; k < matriz.length; k++) {
-			if (estradasDeSaida(k) == 0) {
+			if (numeroDeSaidas(k) == 0 && numeroDeEntradas(k) != 0) {
 				arrayCidadesSemSaidas[indice] = k;
 				indice++;
 			}
@@ -207,12 +191,12 @@ public class Cidades {
 	public int[] cidadesSemEntrada() { // item 5.c)
 		/*
 		 * retorna um array com os numeros das cidades que nao possuem
-		 * entrada vinda de nenhuma outra cidade
+		 * entrada vinda de nenhuma outra cidade, porem possuem alguma saida
 		 */
 		int numeroDeCidadesSemEntrada = 0;
 		
 		for (int k = 0; k < matriz.length; k++) {
-			if (estradasDeEntrada(k) == 0)
+			if (numeroDeEntradas(k) == 0 && numeroDeEntradas(k) != 0)
 				numeroDeCidadesSemEntrada++;
 		}
 		
@@ -220,7 +204,7 @@ public class Cidades {
 		int indice = 0;
 		
 		for (int k = 0; k < matriz.length; k++) {
-			if (estradasDeEntrada(k) == 0) {
+			if (numeroDeEntradas(k) == 0 && numeroDeEntradas(k) != 0) {
 				arrayCidadesSemEntrada[indice] = k;
 				indice++;
 			}
