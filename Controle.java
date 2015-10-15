@@ -10,10 +10,11 @@ public class Controle {
 		Cidades cidades = new Cidades();
 		
 		int[][] matriz = {
-				{1, 1, 1, 0},
-				{0, 1, 1, 0},
-				{1, 0, 1, 1},
-				{0, 0, 1, 1}
+				{0, 0, 0, 0, 0},
+				{0, 0, 0, 0, 1},
+				{0, 0, 0, 0, 0},
+				{0, 0, 0, 0, 0},
+				{0, 1, 0, 1, 0}
 		};
 		
 		cidades.setMatriz(matriz);
@@ -21,7 +22,7 @@ public class Controle {
 		
 		//view.mostraString(Boolean.toString(cidades.soTemLigacoesMaoDupla(3)));
 		//view.mostraInt("", cidades.maiorNumeroEntradas());
-		view.mostraString(Arrays.toString(cidades.possuemSaidasDiretas(1)));
+		view.mostraString(Arrays.toString(cidades.cidadesSemSaida()));
 		
 	}
 
