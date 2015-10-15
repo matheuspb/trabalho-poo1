@@ -17,7 +17,7 @@ public class Cidades {
 	public void setMatriz(int[][] matriz) {
 		this.matriz = matriz;
 	}
-	
+
 	public int[][] getMatriz() {
 		return matriz;
 	}
@@ -43,7 +43,7 @@ public class Cidades {
 			}
 		}
 	}
-	
+
 	// --> passar para o controle
 	public void mostraMatriz() {
 		String output = "";
@@ -94,12 +94,14 @@ public class Cidades {
 	}
 
 	public boolean soTemLigacoesMaoDupla(int k) { // item 3
-		/* retorna true se a cidade k possui apenas ligacoes duplas com outras,
-		 * consequentemente retorna false se existe algum caminho:
+		/*
+		 * retorna true se a cidade k possui apenas ligacoes de mao dupla com
+		 * outras, consequentemente retorna false se existe algum caminho:
 		 * -que saia de k para outra cidade mas nao o inverso
 		 * -que chegue em k de outra cidade mas nao o inverso
-		 *
-		 * obs.: retorna true se a cidade k esta isolada, por falta de contra exemplo
+		 * 
+		 * obs.: retorna true se a cidade k esta isolada, por falta de contra
+		 * exemplo
 		 */
 		boolean saida = true;
 		for (int i = 0; i < matriz.length; i++) {
@@ -110,9 +112,10 @@ public class Cidades {
 		}
 		return saida;
 	}
-	
+
 	public int[] possuemSaidasDiretas(int k) { // item 4
-		/* retorna um Array com o numero das cidades que tem saida direta
+		/*
+		 * retorna um Array com o numero das cidades que tem saida direta 
 		 * para a cidade k, ou seja 'matriz[i][k] = 1'
 		 */
 		int numeroDeCidades = 0;
@@ -120,7 +123,7 @@ public class Cidades {
 			if ((matriz[i][k] == 1) && (i != k))
 				numeroDeCidades++;
 		}
-		
+
 		int[] cidadesComSaidasDiretas = new int[numeroDeCidades];
 		int indice = 0;
 		for (int i = 0; i < matriz.length; i++) {
@@ -129,7 +132,7 @@ public class Cidades {
 				indice++;
 			}
 		}
-		
+
 		return cidadesComSaidasDiretas;
 	}
 
