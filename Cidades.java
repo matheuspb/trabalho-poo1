@@ -118,14 +118,7 @@ public class Cidades {
 		 * retorna um Array com o numero das cidades que tem saida direta 
 		 * para a cidade k, ou seja 'matriz[i][k] == 1'
 		 */
-		int numeroDeCidadesComSaidasDiretas = 0;
-		
-		for (int i = 0; i < matriz.length; i++) {
-			if ((matriz[i][k] == 1) && (i != k))
-				numeroDeCidadesComSaidasDiretas++;
-		}
-
-		int[] cidadesComSaidasDiretas = new int[numeroDeCidadesComSaidasDiretas];
+		int[] cidadesComSaidasDiretas = new int[numeroDeEntradas(k)];
 		int indice = 0;
 		
 		for (int i = 0; i < matriz.length; i++) {
