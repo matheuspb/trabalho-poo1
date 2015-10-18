@@ -17,7 +17,7 @@ public class Cidades {
 
 	public int[][] getMatriz() {
 		return matriz;
-	}	
+	}
 
 	public int numeroDeSaidas(int k) { // item 1
 		// retorna quantas estradas saem da cidade k
@@ -62,9 +62,6 @@ public class Cidades {
 		 * outras, consequentemente retorna false se existe algum caminho:
 		 * -que saia de k para outra cidade mas nao o inverso
 		 * -que chegue em k de outra cidade mas nao o inverso
-		 * 
-		 * obs.: retorna true se a cidade k esta isolada,
-		 * por falta de contra exemplo
 		 */
 		boolean saida = true;
 		for (int i = 0; i < matriz.length; i++) {
