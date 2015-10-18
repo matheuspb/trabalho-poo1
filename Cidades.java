@@ -21,12 +21,11 @@ public class Cidades {
 
 	public int numeroDeSaidas(int k) { // item 1
 		// retorna quantas estradas saem da cidade k
-		int i = k;
 		int numeroDeCaminhos = 0;
-		for (int j = 0; j < matriz.length; j++) {
-			if (j == k)
+		for (int i = 0; i < matriz.length; i++) {
+			if (i == k)
 				continue;
-			if (matriz[i][j] == 1)
+			if (matriz[k][i] == 1)
 				numeroDeCaminhos += 1;
 		}
 		return numeroDeCaminhos;
@@ -34,12 +33,11 @@ public class Cidades {
 
 	public int numeroDeEntradas(int k) { // item 1
 		// retorna quantas estradas chegam na cidade k
-		int j = k;
 		int numeroDeCaminhos = 0;
 		for (int i = 0; i < matriz.length; i++) {
 			if (i == k)
 				continue;
-			if (matriz[i][j] == 1)
+			if (matriz[i][k] == 1)
 				numeroDeCaminhos += 1;
 		}
 		return numeroDeCaminhos;
