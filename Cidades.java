@@ -63,14 +63,12 @@ public class Cidades {
 		 * -que saia de k para outra cidade mas nao o inverso
 		 * -que chegue em k de outra cidade mas nao o inverso
 		 */
-		boolean saida = true;
 		for (int i = 0; i < matriz.length; i++) {
-			if (k == i)
-				continue;
-			if (matriz[k][i] == 1 && matriz[i][k] != 1)
-				saida = false;
+			if (matriz[k][i] != matriz[i][k]) {
+				return false;
+			}
 		}
-		return saida;
+		return true;
 	}
 
 	public int[] possuemSaidasDiretas(int k) { // item 4
@@ -82,7 +80,9 @@ public class Cidades {
 		int indice = 0;
 		
 		for (int i = 0; i < matriz.length; i++) {
-			if ((matriz[i][k] == 1) && (i != k)) {
+			if (i == k)
+				continue;
+			if (matriz[i][k] == 1) {
 				cidadesComSaidasDiretas[indice] = i;
 				indice++;
 			}
